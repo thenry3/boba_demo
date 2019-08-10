@@ -42,9 +42,6 @@ const Searchbar = styled("input")`
   &:focus {
     outline: none;
   }
-  /* ${SearchDiv}:hover & {
-    color: blue;
-  } */
 `;
 
 const SearchIcon = styled(FaSearch)`

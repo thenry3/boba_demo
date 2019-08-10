@@ -39,13 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/preset-react": "^7.0.0",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-emotion": "^10.0.15"
-  },
-  "plugins": [
-    "emotion"
-  ]
+  }
 }
