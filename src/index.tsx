@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
+
+import Demo_Page from "./pages/Demo_Page";
 
 export default class App extends React.Component {
   render() {
     return (
       <>
-        <h1>what's up</h1>
+        <HashRouter>
+          <Route exact path="/" component={Demo_Page} />
+        </HashRouter>
       </>
     );
   }
