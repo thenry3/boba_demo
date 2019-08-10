@@ -13,7 +13,7 @@ const NavComponent = styled("div")`
 
 const WebsiteTitle = styled(Link)`
   color: white;
-  margin: 10px 8vw;
+  margin: 10px 5vw;
   margin-right: 0px;
   font-size: 3.5vw;
   font-weight: bold;
