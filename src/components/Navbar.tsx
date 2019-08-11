@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { css } from "@emotion/core"
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
@@ -64,21 +65,27 @@ const Searchbar = styled("input")`
   position: relative;
   height: 100%;
   border-radius: 25px;
-  padding: 0px;
   font-size: 1.3vw;
   color: #484848;
-  width: 0%;
   transition: 0.4s;
+  width: ${props => {
+    if (props.focused) {
+      return "100%"
+    }
+    else {
+      return "0%"
+    }
+  }}
+  padding: ${props => {
+    if (props.focused) {
+      return "6px 12% 6px 20px"
+    }
+    else {
+      return "0px"
+    }
+  }}
   &:focus {
     outline: none;
-    width: 100%;
-    padding: 6px 20px;
-    padding-right: 12%;
-  }
-  &:focus  ${SearchDiv} {
-    justify-content: flex-end;
-    width: 25vw;
-    margin: 0px;
   }
   ${SearchDiv}:hover & {
     width: 100%;
@@ -94,12 +101,38 @@ const SearchIcon = styled(FaSearch)`
   height: 2em;
   transition: 0.4s;
   color: white;
-  ${Searchbar}:focus + & {
-    right: 4%;
-    width: 1em;
-    height: 1em;
-    color: black;
-  }
+  right: ${props => {
+    if (props.focused) {
+      return "4%"
+    }
+    else {
+      return "0%"
+    }
+  }}
+  width: ${props => {
+    if (props.focused) {
+      return "1em"
+    }
+    else {
+      return "2em"
+    }
+  }}
+  height: ${props => {
+    if (props.focused) {
+      return "1em"
+    }
+    else {
+      return "2em"
+    }
+  }}
+  color: ${props => {
+    if (props.focused) {
+      return "black"
+    }
+    else {
+      return "white"
+    }
+  }}
   ${SearchDiv}:hover > & {
     right: 4%;
     width: 1em;
@@ -108,17 +141,32 @@ const SearchIcon = styled(FaSearch)`
   }
 `;
 
-export default class Navbar extends React.Component<{}, {isFocused: boolean}> {
+export default class Navbar extends React.Component<{}, {isFocused: boolean, characterExists: boolean}> {
   constructor(props) {
     super(props)
     this.focusOff = this.focusOff.bind(this)
     this.focusOn = this.focusOn.bind(this)
+    this.isCharacter = this.isCharacter.bind(this)
   }
 
   componentWillMount() {
     this.setState({
-      isFocused: false
+      isFocused: false,
+      characterExists: false
     })
+  }
+
+  isCharacter(event) {
+    if (event.target.value.length > 0) {
+      this.setState({
+        characterExists: true
+      })
+    }
+    else {
+      this.setState({
+        characterExists: false
+      })
+    }
   }
 
   focusOn() {
@@ -138,9 +186,9 @@ export default class Navbar extends React.Component<{}, {isFocused: boolean}> {
       <>
         <NavComponent>
           <WebsiteTitle to="/">bobarate</WebsiteTitle>
-          <SearchDiv focused={this.state.isFocused}>
-            <Searchbar placeholder="Search a milk tea shop" onFocus={this.focusOn} onBlur={this.focusOff}/>
-            <SearchIcon />
+          <SearchDiv focused={this.state.isFocused || this.state.characterExists}>
+            <Searchbar placeholder="Search a milk tea shop" onFocus={this.focusOn} onBlur={this.focusOff} onChange={this.isCharacter} focused={this.state.characterExists || this.state.isFocused}/>
+            <SearchIcon focused={this.state.isFocused || this.state.characterExists}/>
           </SearchDiv>
         </NavComponent>
       </>
