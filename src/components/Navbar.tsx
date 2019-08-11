@@ -1,13 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-import { css } from "@emotion/core"
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const NavComponent = styled("div")`
   display: flex;
   position: sticky;
-  background: #06d198;
+  background: white;
   justify-content: space-between;
   align-items: center;
   font-family: "Comfortaa", "sans-serif";
@@ -15,7 +14,7 @@ const NavComponent = styled("div")`
 `;
 
 const WebsiteTitle = styled(Link)`
-  color: white;
+  color: #06d198;
   margin: 15px 5vw;
   margin-right: 20px;
   font-size: 3vw;
@@ -29,13 +28,13 @@ const SearchDiv = styled("div")`
   align-items: center;
   position: relative;
   transition: 0.4s;
-  height: 100%;
+  border-radius: 50%;
   justify-content: ${props => {
     if (props.focused) {
       return "flex-end"
     }
     else {
-      return "flex-start"
+      return "center"
     }
   }}
   width: ${props => {
@@ -43,10 +42,10 @@ const SearchDiv = styled("div")`
       return "20vw"
     }
     else {
-      return "2em"
+      return "4em"
     }
   }}
-  margin-left:${props => {
+  margin-left: ${props => {
     if (props.focused) {
       return "0px"
     }
@@ -54,17 +53,35 @@ const SearchDiv = styled("div")`
       return "4vw"
     }
   }}
+  height: ${props => {
+    if (props.focused) {
+      return "4em"
+    }
+    else {
+      return "4em"
+    }
+  }}
+  background: ${props => {
+    if (props.focused) {
+      return "white"
+    }
+    else {
+      return "#06d198"
+    }
+  }}
   &:hover {
     justify-content: flex-end;
     width: 20vw;
     margin-left: 0px;
+    background: white;
+    height: 4em;
   }
 `;
 
 const Searchbar = styled("input")`
   border: none;
   position: relative;
-  height: 100%;
+  height: 40%;
   border-radius: 25px;
   font-size: 1.1vw;
   color: #484848;
@@ -85,6 +102,14 @@ const Searchbar = styled("input")`
       return "0px"
     }
   }}
+  border: ${props => {
+    if (props.focused) {
+      return "2px #06d198 solid"
+    }
+    else {
+      return "none"
+    }
+  }}
   &:focus {
     outline: none;
   }
@@ -92,12 +117,12 @@ const Searchbar = styled("input")`
     width: 100%;
     padding: 6px 20px;
     padding-right: 12%;
+    border: 2px #06d198 solid
   }
 `;
 
 const SearchIcon = styled(FaSearch)`
   position: absolute;
-  right: 0%;
   width: 2em;
   height: 2em;
   transition: 0.4s;
@@ -107,7 +132,7 @@ const SearchIcon = styled(FaSearch)`
       return "4%"
     }
     else {
-      return "0%"
+      return "auto"
     }
   }}
   width: ${props => {
@@ -150,7 +175,7 @@ margin-right: 3vw;
 
 const NavLink = styled(Link)`
 text-decoration: none;
-color: white;
+color: #06d198;
 font-size: 1.1vw;
 text-align: center;
 position: relative;
@@ -158,7 +183,7 @@ line-height: 9vh;
 transition: 0.2s
 margin-left: 2vw;
 &:hover { 
-  border-bottom: 0.5vh white solid
+  border-bottom: 0.5vh #06d198 solid
 }
 `
 const LeftNavBar = styled('div')`
