@@ -8,16 +8,17 @@ const NavComponent = styled("div")`
   display: flex;
   position: sticky;
   background: #06d198;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   font-family: "Comfortaa", "sans-serif";
+  height: 9vh;
 `;
 
 const WebsiteTitle = styled(Link)`
   color: white;
   margin: 15px 5vw;
   margin-right: 20px;
-  font-size: 3.5vw;
+  font-size: 3vw;
   font-weight: bold;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -39,7 +40,7 @@ const SearchDiv = styled("div")`
   }}
   width: ${props => {
     if (props.focused) {
-      return "25vw"
+      return "20vw"
     }
     else {
       return "2em"
@@ -55,7 +56,7 @@ const SearchDiv = styled("div")`
   }}
   &:hover {
     justify-content: flex-end;
-    width: 25vw;
+    width: 20vw;
     margin-left: 0px;
   }
 `;
@@ -65,7 +66,7 @@ const Searchbar = styled("input")`
   position: relative;
   height: 100%;
   border-radius: 25px;
-  font-size: 1.3vw;
+  font-size: 1.1vw;
   color: #484848;
   transition: 0.4s;
   width: ${props => {
@@ -141,6 +142,31 @@ const SearchIcon = styled(FaSearch)`
   }
 `;
 
+const NavLinks = styled('div')`
+display: flex;
+height: 100%;
+margin-right: 3vw;
+`
+
+const NavLink = styled(Link)`
+text-decoration: none;
+color: white;
+font-size: 1.1vw;
+text-align: center;
+position: relative;
+line-height: 9vh;
+transition: 0.2s
+margin-left: 2vw;
+&:hover { 
+  border-bottom: 0.5vh white solid
+}
+`
+const LeftNavBar = styled('div')`
+display: flex;
+align-items: center;
+position: relative;
+`
+
 export default class Navbar extends React.Component<{}, {isFocused: boolean, characterExists: boolean}> {
   constructor(props) {
     super(props)
@@ -185,11 +211,18 @@ export default class Navbar extends React.Component<{}, {isFocused: boolean, cha
     return (
       <>
         <NavComponent>
+          <LeftNavBar>
           <WebsiteTitle to="/">bobarate</WebsiteTitle>
-          <SearchDiv focused={this.state.isFocused || this.state.characterExists}>
-            <Searchbar placeholder="Search a milk tea shop" onFocus={this.focusOn} onBlur={this.focusOff} onChange={this.isCharacter} focused={this.state.characterExists || this.state.isFocused}/>
-            <SearchIcon focused={this.state.isFocused || this.state.characterExists}/>
-          </SearchDiv>
+            <SearchDiv focused={this.state.isFocused || this.state.characterExists}>
+              <Searchbar placeholder="Search a milk tea shop" onFocus={this.focusOn} onBlur={this.focusOff} onChange={this.isCharacter} focused={this.state.characterExists || this.state.isFocused}/>
+              <SearchIcon focused={this.state.isFocused || this.state.characterExists}/>
+            </SearchDiv>
+          </LeftNavBar>
+          <NavLinks>
+            <NavLink to="/">profile</NavLink>
+            <NavLink to="/">other</NavLink>
+            <NavLink to="/">random</NavLink>
+          </NavLinks>
         </NavComponent>
       </>
     );
