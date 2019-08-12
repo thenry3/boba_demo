@@ -11,6 +11,7 @@ const NavComponent = styled("div")`
   align-items: center;
   font-family: "Comfortaa", "sans-serif";
   height: 9vh;
+  z-index: 9999 !important;
 `;
 
 const WebsiteTitle = styled(Link)`
@@ -31,42 +32,37 @@ const SearchDiv = styled("div")`
   border-radius: 50%;
   justify-content: ${props => {
     if (props.focused) {
-      return "flex-end"
-    }
-    else {
-      return "center"
+      return "flex-end";
+    } else {
+      return "center";
     }
   }}
   width: ${props => {
     if (props.focused) {
-      return "20vw"
-    }
-    else {
-      return "4em"
+      return "20vw";
+    } else {
+      return "4em";
     }
   }}
   margin-left: ${props => {
     if (props.focused) {
-      return "0px"
-    }
-    else {
-      return "4vw"
+      return "0px";
+    } else {
+      return "4vw";
     }
   }}
   height: ${props => {
     if (props.focused) {
-      return "4em"
-    }
-    else {
-      return "4em"
+      return "4em";
+    } else {
+      return "4em";
     }
   }}
   background: ${props => {
     if (props.focused) {
-      return "white"
-    }
-    else {
-      return "#06d198"
+      return "white";
+    } else {
+      return "#06d198";
     }
   }}
   &:hover {
@@ -88,26 +84,23 @@ const Searchbar = styled("input")`
   transition: 0.4s;
   width: ${props => {
     if (props.focused) {
-      return "100%"
-    }
-    else {
-      return "0%"
+      return "100%";
+    } else {
+      return "0%";
     }
   }}
   padding: ${props => {
     if (props.focused) {
-      return "6px 12% 6px 20px"
-    }
-    else {
-      return "0px"
+      return "6px 12% 6px 20px";
+    } else {
+      return "0px";
     }
   }}
   border: ${props => {
     if (props.focused) {
-      return "2px #06d198 solid"
-    }
-    else {
-      return "none"
+      return "2px #06d198 solid";
+    } else {
+      return "none";
     }
   }}
   &:focus {
@@ -127,36 +120,33 @@ const SearchIcon = styled(FaSearch)`
   height: 2em;
   transition: 0.4s;
   color: white;
+  transition: transform 0.7s;
   right: ${props => {
     if (props.focused) {
-      return "4%"
-    }
-    else {
-      return "auto"
+      return "4%";
+    } else {
+      return "auto";
     }
   }}
   width: ${props => {
     if (props.focused) {
-      return "1em"
-    }
-    else {
-      return "2em"
+      return "1em";
+    } else {
+      return "2em";
     }
   }}
   height: ${props => {
     if (props.focused) {
-      return "1em"
-    }
-    else {
-      return "2em"
+      return "1em";
+    } else {
+      return "2em";
     }
   }}
   color: ${props => {
     if (props.focused) {
-      return "black"
-    }
-    else {
-      return "white"
+      return "black";
+    } else {
+      return "white";
     }
   }}
   ${SearchDiv}:hover > & {
@@ -164,14 +154,15 @@ const SearchIcon = styled(FaSearch)`
     width: 1em;
     height: 1em;
     color: black;
+    transform: rotate(360deg);
   }
 `;
 
-const NavLinks = styled('div')`
-display: flex;
-height: 100%;
-margin-right: 3vw;
-`
+const NavLinks = styled("div")`
+  display: flex;
+  height: 100%;
+  margin-right: 3vw;
+`;
 
 const NavLink = styled(Link)`
 text-decoration: none;
@@ -185,51 +176,53 @@ margin-left: 2vw;
 &:hover { 
   border-bottom: 0.5vh #06d198 solid
 }
-`
-const LeftNavBar = styled('div')`
-display: flex;
-align-items: center;
-position: relative;
-`
+`;
+const LeftNavBar = styled("div")`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
 
-export default class Navbar extends React.Component<{}, {isFocused: boolean, characterExists: boolean}> {
+export default class Navbar extends React.Component<
+  {},
+  { isFocused: boolean; characterExists: boolean }
+> {
   constructor(props) {
-    super(props)
-    this.focusOff = this.focusOff.bind(this)
-    this.focusOn = this.focusOn.bind(this)
-    this.isCharacter = this.isCharacter.bind(this)
+    super(props);
+    this.focusOff = this.focusOff.bind(this);
+    this.focusOn = this.focusOn.bind(this);
+    this.isCharacter = this.isCharacter.bind(this);
   }
 
   componentWillMount() {
     this.setState({
       isFocused: false,
       characterExists: false
-    })
+    });
   }
 
   isCharacter(event) {
     if (event.target.value.length > 0) {
       this.setState({
         characterExists: true
-      })
-    }
-    else {
+      });
+    } else {
       this.setState({
         characterExists: false
-      })
+      });
     }
   }
 
   focusOn() {
     this.setState({
       isFocused: true
-    })
+    });
   }
 
   focusOff() {
     this.setState({
       isFocused: false
-    })
+    });
   }
 
   render() {
@@ -237,10 +230,20 @@ export default class Navbar extends React.Component<{}, {isFocused: boolean, cha
       <>
         <NavComponent>
           <LeftNavBar>
-          <WebsiteTitle to="/">bobarate</WebsiteTitle>
-            <SearchDiv focused={this.state.isFocused || this.state.characterExists}>
-              <Searchbar placeholder="Search a milk tea shop" onFocus={this.focusOn} onBlur={this.focusOff} onChange={this.isCharacter} focused={this.state.characterExists || this.state.isFocused}/>
-              <SearchIcon focused={this.state.isFocused || this.state.characterExists}/>
+            <WebsiteTitle to="/">bobarate</WebsiteTitle>
+            <SearchDiv
+              focused={this.state.isFocused || this.state.characterExists}
+            >
+              <Searchbar
+                placeholder="Search a milk tea shop"
+                onFocus={this.focusOn}
+                onBlur={this.focusOff}
+                onChange={this.isCharacter}
+                focused={this.state.characterExists || this.state.isFocused}
+              />
+              <SearchIcon
+                focused={this.state.isFocused || this.state.characterExists}
+              />
             </SearchDiv>
           </LeftNavBar>
           <NavLinks>
