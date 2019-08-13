@@ -12,6 +12,7 @@ const NavComponent = styled("div")`
   font-family: "Comfortaa", "sans-serif";
   height: 9vh;
   z-index: 9999 !important;
+  margin-bottom: 2vh;
 `;
 
 const WebsiteTitle = styled(Link)`
@@ -41,7 +42,7 @@ const SearchDiv = styled("div")`
     if (props.focused) {
       return "20vw";
     } else {
-      return "4em";
+      return "3em";
     }
   }}
   margin-left: ${props => {
@@ -53,9 +54,9 @@ const SearchDiv = styled("div")`
   }}
   height: ${props => {
     if (props.focused) {
-      return "4em";
+      return "3em";
     } else {
-      return "4em";
+      return "3em";
     }
   }}
   background: ${props => {
@@ -70,14 +71,14 @@ const SearchDiv = styled("div")`
     width: 20vw;
     margin-left: 0px;
     background: white;
-    height: 4em;
+    height: 3em;
   }
 `;
 
 const Searchbar = styled("input")`
   border: none;
   position: relative;
-  height: 40%;
+  height: 45%;
   border-radius: 25px;
   font-size: 1.1vw;
   color: #484848;

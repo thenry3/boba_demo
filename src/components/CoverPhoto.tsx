@@ -10,15 +10,17 @@ const Header = styled("div")`
   height: 67vh;
   margin: auto;
   justify-content: space-between;
+  margin-bottom: 3vh;
 `;
 
 const Photo = styled("div")`
   background: url(${BobaCover}) no-repeat center;
   background-size: cover;
   height: 100%;
-  width: 63%;
+  width: 66%;
   position: relative;
   margin: auto;
+  margin-left: 0px;
 `;
 
 const CoverText = styled("div")`
