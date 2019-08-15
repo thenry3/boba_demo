@@ -4,6 +4,8 @@ import * as serviceWorker from "./serviceWorker";
 import { HashRouter, Route } from "react-router-dom";
 
 import Demo_Page from "./pages/Demo_Page";
+import DemoGalleryPage from "./pages/DemoGalleryPage";
+import x from "./assets/Gallery";
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +13,7 @@ export default class App extends React.Component {
       <>
         <HashRouter>
           <Route exact path="/" component={Demo_Page} />
+          <Route path="/gallery" component={DemoGalleryPage} />
         </HashRouter>
       </>
     );

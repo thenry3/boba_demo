@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 import PictureCategory from "./PictureCategory";
 
-import BobaOutside from "../assets/BobaOutside.jpg";
-import BobaInside from "../assets/BobaInside.jpg";
-import BobaDrink from "../assets/BobaDrink.jpg";
-import BobaMenu from "../assets/BobaMenu.jpg";
+import BobaOutside from "../assets/OutsideImages/BobaOutside.jpg";
+import BobaInside from "../assets/InsideImages/BobaInside.jpg";
+import BobaDrink from "../assets/DrinkImages/BobaDrink.jpg";
+import BobaMenu from "../assets/MenuImages/BobaMenu.jpg";
 
 const PhotoComponent = styled("div")`
   display: flex;
