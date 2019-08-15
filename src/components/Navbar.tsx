@@ -37,35 +37,35 @@ const SearchDiv = styled("div")`
     } else {
       return "center";
     }
-  }}
+  }};
   width: ${props => {
     if (props.focused) {
       return "20vw";
     } else {
       return "3em";
     }
-  }}
+  }};
   margin-left: ${props => {
     if (props.focused) {
       return "0px";
     } else {
       return "4vw";
     }
-  }}
+  }};
   height: ${props => {
     if (props.focused) {
       return "3em";
     } else {
       return "3em";
     }
-  }}
+  }};
   background: ${props => {
     if (props.focused) {
       return "white";
     } else {
       return "#06d198";
     }
-  }}
+  }};
   &:hover {
     justify-content: flex-end;
     width: 20vw;
@@ -89,21 +89,21 @@ const Searchbar = styled("input")`
     } else {
       return "0%";
     }
-  }}
+  }};
   padding: ${props => {
     if (props.focused) {
       return "6px 12% 6px 20px";
     } else {
       return "0px";
     }
-  }}
+  }};
   border: ${props => {
     if (props.focused) {
       return "2px #06d198 solid";
     } else {
       return "none";
     }
-  }}
+  }};
   &:focus {
     outline: none;
   }
@@ -111,7 +111,7 @@ const Searchbar = styled("input")`
     width: 100%;
     padding: 6px 20px;
     padding-right: 12%;
-    border: 2px #06d198 solid
+    border: 2px #06d198 solid;
   }
 `;
 
@@ -128,28 +128,28 @@ const SearchIcon = styled(FaSearch)`
     } else {
       return "auto";
     }
-  }}
+  }};
   width: ${props => {
     if (props.focused) {
       return "1em";
     } else {
       return "2em";
     }
-  }}
+  }};
   height: ${props => {
     if (props.focused) {
       return "1em";
     } else {
       return "2em";
     }
-  }}
+  }};
   color: ${props => {
     if (props.focused) {
       return "black";
     } else {
       return "white";
     }
-  }}
+  }};
   ${SearchDiv}:hover > & {
     right: 4%;
     width: 1em;
@@ -166,17 +166,17 @@ const NavLinks = styled("div")`
 `;
 
 const NavLink = styled(Link)`
-text-decoration: none;
-color: #06d198;
-font-size: 1.1vw;
-text-align: center;
-position: relative;
-line-height: 9vh;
-transition: 0.2s
-margin-left: 2vw;
-&:hover { 
-  border-bottom: 0.5vh #06d198 solid
-}
+  text-decoration: none;
+  color: #06d198;
+  font-size: 1.1vw;
+  text-align: center;
+  position: relative;
+  line-height: 9vh;
+  transition: 0.2s;
+  margin-left: 2vw;
+  &:hover {
+    border-bottom: 0.5vh #06d198 solid;
+  }
 `;
 const LeftNavBar = styled("div")`
   display: flex;
