@@ -1,6 +1,14 @@
-let DrinkImages = require.context("./DrinkImages", true, /\.jpg$/);
-let InsideImages = require.context("./MenuImages", true, /\.jpg$/);
-let MenuImages = require.context("./MenuImages", true, /\.jpg$/);
-let OutsideImages = require.context("./OutsideImages", true, /\.jpg$/);
+function importAll(r) {
+  return r.keys().map(r);
+}
 
-export default DrinkImages;
+let DrinkImages = importAll(require.context("./DrinkImages", true, /\.jpg$/));
+let InsideImages = importAll(require.context("./MenuImages", true, /\.jpg$/));
+let MenuImages = importAll(require.context("./MenuImages", true, /\.jpg$/));
+let OutsideImages = importAll(
+  require.context("./OutsideImages", true, /\.jpg$/)
+);
+
+let Gallery = [DrinkImages, InsideImages, MenuImages, OutsideImages];
+
+export default Gallery;
