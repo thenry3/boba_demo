@@ -5,7 +5,6 @@ import { HashRouter, Route } from "react-router-dom";
 
 import Demo_Page from "./pages/Demo_Page";
 import DemoGalleryPage from "./pages/DemoGalleryPage";
-import x from "./assets/Gallery";
 
 export default class App extends React.Component {
   render() {

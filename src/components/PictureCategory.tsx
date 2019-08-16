@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const CategoryWrapper = styled("div")`
   position: relative;
@@ -61,13 +61,12 @@ interface CategoryProps {
   ItemProps: {
     Picture: any;
     Name: string;
-    anchor: string;
   };
 }
 
 export default class PictureCategory extends React.Component<CategoryProps> {
   render() {
-    let link = "/gallery#" + this.props.ItemProps.anchor;
+    let link = "/gallery#" + this.props.ItemProps.Name;
     return (
       <>
         <CategoryWrapper>

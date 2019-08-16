@@ -46,23 +46,19 @@ const ViewAllLink = styled(Link)`
 let categories = [
   {
     Picture: BobaOutside,
-    Name: "Outside",
-    anchor: "OutsideImages"
+    Name: "Outside"
   },
   {
     Picture: BobaInside,
-    Name: "Inside",
-    anchor: "InsideImages"
+    Name: "Inside"
   },
   {
     Picture: BobaDrink,
-    Name: "Drinks",
-    anchor: "DrinkImages"
+    Name: "Drinks"
   },
   {
     Picture: BobaMenu,
-    Name: "Menu",
-    anchor: "MenuImages"
+    Name: "Menu"
   }
 ];
 
@@ -77,7 +73,7 @@ export default class PhotoSection extends React.Component {
               <PictureCategory ItemProps={categoryprop} />
             ))}
           </Section>
-          <ViewAllLink to="/">View all 34 photos</ViewAllLink>
+          <ViewAllLink to="/gallery">View all 34 photos</ViewAllLink>
         </PhotoComponent>
       </>
     );
