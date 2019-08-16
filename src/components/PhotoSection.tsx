@@ -46,19 +46,23 @@ const ViewAllLink = styled(Link)`
 let categories = [
   {
     Picture: BobaOutside,
-    Name: "Outside"
+    Name: "Outside",
+    anchor: "OutsideImages"
   },
   {
     Picture: BobaInside,
-    Name: "Inside"
+    Name: "Inside",
+    anchor: "InsideImages"
   },
   {
     Picture: BobaDrink,
-    Name: "Drinks"
+    Name: "Drinks",
+    anchor: "DrinkImages"
   },
   {
     Picture: BobaMenu,
-    Name: "Menu"
+    Name: "Menu",
+    anchor: "MenuImages"
   }
 ];
 

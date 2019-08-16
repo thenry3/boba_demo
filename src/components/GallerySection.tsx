@@ -27,20 +27,18 @@ const GalleryPicture = styled("div")`
 `;
 
 interface GalleryProps {
-  section: {
-    name: string;
-    pictures: any;
-  };
+  galleryName: string;
+  pictures: any;
 }
 
 export default class GallerySection extends React.Component<GalleryProps> {
   render() {
     return (
       <>
-        <SectionWrapper>
-          <SectionTitle>{this.props.section.name}</SectionTitle>
+        <SectionWrapper name={this.props.galleryName}>
+          <SectionTitle>{this.props.galleryName}</SectionTitle>
           <SectionPictures>
-            {this.props.section.pictures.map(image => (
+            {this.props.pictures.map(image => (
               <GalleryPicture imageURL={image} />
             ))}
           </SectionPictures>

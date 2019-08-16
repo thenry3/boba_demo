@@ -61,15 +61,17 @@ interface CategoryProps {
   ItemProps: {
     Picture: any;
     Name: string;
+    anchor: string;
   };
 }
 
 export default class PictureCategory extends React.Component<CategoryProps> {
   render() {
+    let link = "/gallery#" + this.props.ItemProps.anchor;
     return (
       <>
         <CategoryWrapper>
-          <LinkWrapper to="/">
+          <LinkWrapper to={link}>
             <Wrapper>
               <PhotoDiv image={this.props.ItemProps.Picture} />
               <CategoryName>{this.props.ItemProps.Name}</CategoryName>
